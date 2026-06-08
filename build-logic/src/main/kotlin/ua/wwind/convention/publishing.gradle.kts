@@ -30,7 +30,16 @@ val artifactId: String = project.name
 mavenPublishing {
     // Targets Maven Central via Sonatype; host can be customized if needed
     publishToMavenCentral()
-    signAllPublications()
+    // Sign publications only when a signing key is configured (Maven Central releases). Local
+    // publishing / source-fork consumption have no key, so skip signing to avoid requiring
+    // missing .asc artifacts.
+    val hasSigningKey: Boolean =
+        providers.gradleProperty("signingInMemoryKey").isPresent ||
+            providers.gradleProperty("signing.keyId").isPresent ||
+            providers.environmentVariable("ORG_GRADLE_PROJECT_signingInMemoryKey").isPresent
+    if (hasSigningKey) {
+        signAllPublications()
+    }
 
     coordinates(
         project.group.toString(),

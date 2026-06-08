@@ -11,8 +11,8 @@ android-targetSdk = "37"
 agp = "8.13.2"
 
 # --- Kotlin Toolchain & Compose ---
-kotlin = "2.3.21"
-compose-multiplatform = "1.11.0"
+kotlin = "2.4.0"
+compose-multiplatform = "1.11.1"
 compose-material3 = "1.11.0-alpha07"
 compose-material-icons = "1.7.3"
 
@@ -35,7 +35,7 @@ slf4j = "2.0.17"
 # --- UI & UX ---
 reorderable = "3.1.0"
 paging = "2.2.7"
-colorpicker = "1.1.4"
+colorpicker = "1.2.0"
 liquid = "1.1.1"
 fastscroller = "0.3.2"
 
@@ -49,7 +49,7 @@ ktlint-gradle = "14.2.0"
 kover = "0.9.8"
 dokka = "2.2.0"
 mavenPublish = "0.36.0"
-stability-analyzer = "0.7.4"
+stability-analyzer = "0.9.0"
 
 [libraries]
 # --- AndroidX Core & Lifecycle ---
@@ -98,6 +98,7 @@ turbine-turbine = { module = "app.cash.turbine:turbine", version.ref = "turbine"
 # AGP
 gradle-android = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 gradle-android-library = { module = "com.android.library:com.android.library.gradle.plugin", version.ref = "agp" }
+gradle-android-kotlin-multiplatform-library = { module = "com.android.kotlin.multiplatform.library:com.android.kotlin.multiplatform.library.gradle.plugin", version.ref = "agp" }
 
 # Kotlin (core plugin)
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -140,6 +141,7 @@ hot-reload = { id = "org.jetbrains.compose.hot-reload", version.ref = "hotReload
 # --- Android (AGP) ---
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+android-kotlin-multiplatform-library = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
 
 # --- Resources & Multiplatform tooling ---
 buildKonfig = { id = "com.codingfeline.buildkonfig", version.ref = "buildKonfig" }

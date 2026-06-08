@@ -42,7 +42,11 @@ include("table-format")
 include("table-paging")
 
 // Conditionally include samples to avoid configuring/running its tasks in CI/publish
-val excludeSamples: Boolean = gradle.startParameter.projectProperties["excludeSamples"]?.toBoolean() ?: false
+val excludeSamples: Boolean =
+    (
+        gradle.startParameter.projectProperties["excludeSamples"]
+            ?: providers.gradleProperty("excludeSamples").orNull
+    )?.toBoolean() ?: false
 if (!excludeSamples) {
     include("table-sample")
 }
